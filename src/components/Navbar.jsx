@@ -1,0 +1,28 @@
+export default function Navbar() {
+  return (
+    <nav className="bg-white shadow px-6 py-3 flex items-center justify-between">
+      {/* Left: Logo + Title */}
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold">
+          U
+        </div>
+        <span className="text-lg font-semibold text-violet-700">
+          University Events
+        </span>
+      </div>
+
+      {/* Right: User info + Logout */}
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+            <span className="text-sm font-medium">PY</span>
+          </div>
+          <span className="text-sm font-medium text-gray-600">Pakorn Yawtong</span>
+        </div>
+        <button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg font-medium hover:bg-gray-800">
+          Logout
+        </button>
+      </div>
+    </nav>
+  );
+}
