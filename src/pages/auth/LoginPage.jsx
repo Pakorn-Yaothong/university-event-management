@@ -56,24 +56,26 @@ export default function LoginPage() {
             <input
               type="email"
               placeholder="mail@university.com"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-purple-500 outline-none"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 
+                         focus:ring-2 focus:ring-purple-500 outline-none"
             />
           </div>
 
+          {/* Password with toggle */}
           <div className="relative">
             <label className="block text-sm font-medium text-gray-700 mb-1">Password*</label>
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
-              className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-purple-500 outline-none"
+              className="w-full pr-10 pl-4 py-3 rounded-xl border border-gray-200 bg-gray-50 
+                         focus:ring-2 focus:ring-purple-500 outline-none"
             />
-            <button
-              type="button"
+            <span
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-0.5 top-7.5 text-gray-500 hover:text-gray-700"
+              className="absolute right-4 top-10 text-gray-500 cursor-pointer select-none"
             >
-              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-            </button>
+              {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
+            </span>
           </div>
 
           <div className="flex items-center justify-between text-sm">
@@ -92,7 +94,8 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-xl transition"
+            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold 
+                       py-3 rounded-xl transition"
           >
             Sign In
           </button>
@@ -102,7 +105,7 @@ export default function LoginPage() {
           Not registered yet?{" "}
           <span 
             onClick={() => navigate("/register")} 
-            className="font-semibold text-purple-600 cursor-pointer"
+            className="font-semibold text-purple-600 cursor-pointer hover:underline"
           >
             Create an Account
           </span>
