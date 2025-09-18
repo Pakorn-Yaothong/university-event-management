@@ -5,74 +5,93 @@ export default function LoginPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // TODO: ใส่ logic ตรวจสอบ login จริง
+    // TODO: ทำ auth จริง เช่น call API
     navigate("/events");
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 overflow-hidden">
-      <div className="relative z-10 flex flex-col lg:flex-row w-full max-w-6xl mx-auto rounded-3xl shadow-xl bg-transparent">
-        
-        {/* Left Section */}
-        <div className="flex flex-col justify-center text-white px-10 lg:w-1/2 hidden lg:flex">
-          <h1 className="text-4xl font-bold mb-4">
-            ยินดีต้อนรับสู่ University Event Management 🎉
-          </h1>
-          <p className="text-lg opacity-90 leading-relaxed">
-            ติดตามข่าวสาร ลงทะเบียน และเข้าร่วมกิจกรรมของมหาวิทยาลัย
-            ได้ง่าย สะดวก และรวดเร็ว  
-            <br />
-            ✨ ทุกกิจกรรมคือโอกาสในการพัฒนาและสร้างความทรงจำที่ดี
-          </p>
-        </div>
-
-        {/* Right Section (Login Form) */}
-        <div className="flex justify-center items-center w-full lg:w-1/2 p-8">
-          <div className="bg-white rounded-3xl shadow-lg p-8 w-full max-w-md">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">
-              Sign In
-            </h3>
-            <p className="text-gray-600 mb-6 text-center">
-              Enter your email and password
-            </p>
-
-            <form onSubmit={handleLogin}>
-              {/* Email */}
-              <label className="block text-sm text-gray-700 mb-1">Email*</label>
-              <input
-                type="email"
-                placeholder="mail@university.com"
-                className="w-full px-4 py-3 mb-4 text-sm bg-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-
-              {/* Password */}
-              <label className="block text-sm text-gray-700 mb-1">Password*</label>
-              <input
-                type="password"
-                placeholder="Enter a password"
-                className="w-full px-4 py-3 mb-4 text-sm bg-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-
-              {/* Sign In button */}
-              <button
-                type="submit"
-                className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-xl transition"
-              >
-                Sign In
-              </button>
-            </form>
-
-            <p className="text-sm text-gray-600 mt-6 text-center">
-              Not registered yet?{" "}
-              <a href="#" className="font-semibold text-purple-600">
-                Create an Account
-              </a>
-            </p>
-          </div>
-        </div>
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800">
+      {/* Left: Welcome text */}
+      <div className="hidden lg:flex flex-col text-white px-12 w-1/2">
+        <h1 className="text-4xl font-bold mb-4">Welcome to University Event Management</h1>
+        <p className="text-lg opacity-80 leading-relaxed">
+          แพลตฟอร์มที่จะช่วยให้นักศึกษาไม่พลาดทุกกิจกรรมสำคัญในมหาวิทยาลัย  
+          ทั้งกิจกรรมชมรม งานสัมมนา และงานมหกรรมต่าง ๆ  
+          สมัครง่าย ติดตามสถานะได้ทันที และเก็บความทรงจำไว้ในที่เดียว
+        </p>
       </div>
 
-      {/* Purple wave background */}
+      {/* Right: Login box */}
+      <div className="relative z-10 bg-white rounded-3xl shadow-xl w-full max-w-md p-10">
+        <h3 className="text-3xl font-bold text-center text-gray-900 mb-2">Sign In</h3>
+        <p className="text-center text-gray-500 mb-6">Enter your email and password</p>
+
+        {/* Google login button */}
+        <button className="flex items-center justify-center w-full py-3 mb-6 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-xl transition">
+          <img
+            className="h-5 mr-2"
+            src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png"
+            alt="Google"
+          />
+          Sign in with Google
+        </button>
+
+        {/* Divider */}
+        <div className="flex items-center mb-6">
+          <hr className="flex-grow border-gray-300" />
+          <span className="mx-3 text-gray-400 text-sm">or</span>
+          <hr className="flex-grow border-gray-300" />
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleLogin} className="space-y-5">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+            <input
+              type="email"
+              placeholder="mail@university.com"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-purple-500 outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Password*</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-purple-500 outline-none"
+            />
+          </div>
+
+          <div className="flex items-center justify-between text-sm">
+            <label className="flex items-center gap-2">
+              <input type="checkbox" className="w-4 h-4 text-purple-600 rounded focus:ring-purple-500" />
+              <span className="text-gray-600">Keep me logged in</span>
+            </label>
+            <button
+              type="button"
+              className="text-purple-600 hover:underline"
+              onClick={() => navigate("/forgot-password")}
+            >
+              Forgot password?
+            </button>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-xl transition"
+          >
+            Sign In
+          </button>
+        </form>
+
+        <p className="text-center text-sm text-gray-600 mt-6">
+          Not registered yet?{" "}
+          <span className="font-semibold text-purple-600 cursor-pointer">Create an Account</span>
+        </p>
+      </div>
+
+      {/* Background curve */}
       <svg
         className="absolute bottom-0 left-0 w-full"
         xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +100,7 @@ export default function LoginPage() {
         <path
           fill="#fff"
           fillOpacity="1"
-          d="M0,0L40,42.7C80,85,160,171,240,197.3C320,224,400,192,480,154.7C560,117,640,75,720,74.7C800,75,880,117,960,154.7C1040,192,1120,224,1200,213.3C1280,203,1360,149,1400,122.7L1440,96L1440,320L0,320Z"
+          d="M0,64L48,74.7C96,85,192,107,288,128C384,149,480,171,576,154.7C672,139,768,85,864,80C960,75,1056,117,1152,122.7C1248,128,1344,96,1392,80L1440,64V320H0Z"
         ></path>
       </svg>
     </div>
