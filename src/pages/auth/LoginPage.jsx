@@ -87,8 +87,14 @@ export default function LoginPage() {
 
         <p className="text-center text-sm text-gray-600 mt-6">
           Not registered yet?{" "}
-          <span className="font-semibold text-purple-600 cursor-pointer">Create an Account</span>
+          <span 
+            onClick={() => navigate("/register")} 
+            className="font-semibold text-purple-600 cursor-pointer"
+          >
+            Create an Account
+          </span>
         </p>
+        
       </div>
 
       {/* Background curve */}
