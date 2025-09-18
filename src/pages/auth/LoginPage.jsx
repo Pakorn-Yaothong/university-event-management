@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -13,11 +16,14 @@ export default function LoginPage() {
     <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800">
       {/* Left: Welcome text */}
       <div className="hidden lg:flex flex-col text-white px-12 w-1/2">
-        <h1 className="text-4xl font-bold mb-4">Welcome to University Event Management</h1>
-        <p className="text-lg opacity-80 leading-relaxed">
-          แพลตฟอร์มที่จะช่วยให้นักศึกษาไม่พลาดทุกกิจกรรมสำคัญในมหาวิทยาลัย  
-          ทั้งกิจกรรมชมรม งานสัมมนา และงานมหกรรมต่าง ๆ  
-          สมัครง่าย ติดตามสถานะได้ทันที และเก็บความทรงจำไว้ในที่เดียว
+        <h1 className="text-4xl font-bold mb-4">
+          ยินดีต้อนรับสู่ University Event Management 🎉
+        </h1>
+        <p className="text-lg opacity-90 leading-relaxed">
+          ติดตามข่าวสาร ลงทะเบียน และเข้าร่วมกิจกรรมของมหาวิทยาลัย
+          ได้ง่าย สะดวก และรวดเร็ว  
+          <br />
+          ✨ ทุกกิจกรรมคือโอกาสในการพัฒนาและสร้างความทรงจำที่ดี
         </p>
       </div>
 
@@ -54,13 +60,20 @@ export default function LoginPage() {
             />
           </div>
 
-          <div>
+          <div className="relative">
             <label className="block text-sm font-medium text-gray-700 mb-1">Password*</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-purple-500 outline-none"
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-purple-500 outline-none"
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-0.5 top-7.5 text-gray-500 hover:text-gray-700"
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
           </div>
 
           <div className="flex items-center justify-between text-sm">
@@ -94,7 +107,6 @@ export default function LoginPage() {
             Create an Account
           </span>
         </p>
-        
       </div>
 
       {/* Background curve */}
