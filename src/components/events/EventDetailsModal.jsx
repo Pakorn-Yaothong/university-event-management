@@ -1,9 +1,17 @@
+// src/components/events/EventDetailsModal.jsx
 export default function EventDetailsModal({ event, onClose }) {
-  if (!event) return null; // ถ้าไม่มี event ที่เลือก ไม่ต้องแสดงอะไรเลย
+  if (!event) return null;
 
   return (
-    <div className="absolute inset-0 flex items-start justify-center mt-20 z-50">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {/* Overlay มืดจางๆ */}
+      <div
+        className="absolute inset-0 bg-black/40"
+        onClick={onClose} // คลิกนอก popup ก็ปิดได้
+      ></div>
+
+      {/* กล่อง Popup */}
+      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 z-10 animate-fadeIn">
         {/* ปุ่มปิด */}
         <button
           className="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
