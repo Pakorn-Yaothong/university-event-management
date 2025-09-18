@@ -1,3 +1,5 @@
+// src/data/mockEvents.js
+
 export const mockEvents = [
   // แถวบน
   {
@@ -6,8 +8,8 @@ export const mockEvents = [
     description:
       "Resource for student mental health, Stress management workshops, mindfulness sessions, and counseling information.",
     department: "General",
-    registrationType: "FCFS",         // FCFS | CANDIDATE
-    status: "SOON",                   // OPEN | CLOSED | SOON
+    registrationType: "FCFS", // FCFS | CANDIDATE
+    status: "SOON",           // OPEN | CLOSED | SOON
     regStart: "27/7/2568",
     regEnd: "3/8/2568",
     eventStart: "7/8/2568",
@@ -45,6 +47,7 @@ export const mockEvents = [
     capacity: 250,
     confirmedCount: 0,
   },
+
   // แถวล่าง
   {
     id: "ev-4",
