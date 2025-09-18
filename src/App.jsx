@@ -1,17 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import EventsPage from "./pages/EventsPage";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import EventsPage from "./pages/events/EventsPage";
+import LoginPage from "./pages/auth/LoginPage";
+import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 import "./styles/globals.css";
-//import './App.css'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <EventsPage />
-    </div>
+    <Router>
+      <Routes>
+        {/* หน้าแรกให้ไป login */}
+        <Route path="/" element={<Navigate to="/login" />} />
+
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/events" element={<EventsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
-

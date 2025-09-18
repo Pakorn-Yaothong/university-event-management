@@ -1,7 +1,7 @@
-import { mockEvents } from "../data/mockEvents";
-import EventCard from "../components/EventCard";
-import Navbar from "../components/Navbar";
-import SearchBar from "../components/SearchBar";
+import { mockEvents } from "../../data/mockEvents";
+import EventCard from "../../components/events/EventCard";
+import Navbar from "../../components/layout/Navbar";
+import SearchBar from "../../components/layout/SearchBar";
 
 export default function EventsPage() {
   return (
