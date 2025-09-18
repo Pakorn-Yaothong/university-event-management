@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -26,49 +30,71 @@ export default function RegisterPage() {
         <p className="text-center text-gray-500 mb-6">Create your account</p>
 
         <form onSubmit={handleRegister} className="space-y-5">
+          {/* Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Name*</label>
             <input
               type="text"
               placeholder="enter your name"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-purple-500 outline-none"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 
+                         focus:ring-2 focus:ring-purple-500 outline-none"
               required
             />
           </div>
 
+          {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email*</label>
             <input
               type="email"
               placeholder="enter your email"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-purple-500 outline-none"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 
+                         focus:ring-2 focus:ring-purple-500 outline-none"
               required
             />
           </div>
 
-          <div>
+          {/* Password */}
+          <div className="relative">
             <label className="block text-sm font-medium text-gray-700 mb-1">Password*</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="********"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-purple-500 outline-none"
+              className="w-full pr-10 pl-4 py-3 rounded-xl border border-gray-200 bg-gray-50 
+                         focus:ring-2 focus:ring-purple-500 outline-none"
               required
             />
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-4 top-10 text-gray-500 cursor-pointer select-none"
+            >
+              {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
+            </span>
           </div>
 
-          <div>
+          {/* Confirm Password */}
+          <div className="relative">
             <label className="block text-sm font-medium text-gray-700 mb-1">Confirm Password*</label>
             <input
-              type="password"
+              type={showConfirmPassword ? "text" : "password"}
               placeholder="********"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-purple-500 outline-none"
+              className="w-full pr-10 pl-4 py-3 rounded-xl border border-gray-200 bg-gray-50 
+                         focus:ring-2 focus:ring-purple-500 outline-none"
               required
             />
+            <span
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute right-4 top-10 text-gray-500 cursor-pointer select-none"
+            >
+              {showConfirmPassword ? <Eye size={20} /> : <EyeOff size={20} />}
+            </span>
           </div>
 
+          {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-xl transition"
+            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold 
+                       py-3 rounded-xl transition"
           >
             Create Account
           </button>
