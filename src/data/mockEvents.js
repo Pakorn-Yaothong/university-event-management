@@ -1,6 +1,6 @@
 // src/data/mockEvents.js
 
-export const mockEvents = [
+const mockEvents = [
   // แถวบน
   {
     id: "ev-1",
@@ -95,3 +95,7 @@ export const mockEvents = [
     confirmedCount: 0,
   },
 ];
+
+// ✅ export ได้ทั้ง 2 แบบ
+export default mockEvents;
+export { mockEvents };
